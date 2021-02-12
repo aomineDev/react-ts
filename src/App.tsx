@@ -9,7 +9,7 @@ interface Task {
   done: boolean
 }
 
-function App(): JSX.Element {
+function App (): JSX.Element {
   const [task, setTask] = useState<string>('')
   const [tasks, setTasks] = useState<Task[]>([])
 
@@ -18,7 +18,7 @@ function App(): JSX.Element {
   const handleSubmit = (e: FormElement): void => {
     e.preventDefault()
     if (task.length === 0) return
-    
+
     addTask(task)
     setTask('')
     taskInput.current?.focus()
@@ -40,7 +40,7 @@ function App(): JSX.Element {
 
   const removeTask = (taskIndex: number): void => {
     const newTasks: Task[] = [...tasks]
-    
+
     newTasks.splice(taskIndex, 1)
 
     setTasks(newTasks)
@@ -72,7 +72,7 @@ function App(): JSX.Element {
                 <div className="card-body">
                   <h2 style={{ textDecoration: task.done ? 'line-through' : 'none' }}>{task.name}</h2>
                   <button className="btn btn-secondary" onClick={() => toggleDoneTask(index)}>
-                    {task.done ? '✗' : '✓' } 
+                    {task.done ? '✗' : '✓' }
                   </button>
                   <button className="btn btn-danger" onClick={() => removeTask(index)}>
                     🗑
